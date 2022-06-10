@@ -39,6 +39,13 @@ export class ModuleService implements OnApplicationBootstrap {
 
       const findMenus = getMenus.map((men) => men._id);
 
+      const getMenusOthers = await this.menuService.findbyName([
+        'Ingresos',
+        'Egresos',
+      ]);
+
+      const findMenusOthers = getMenusOthers.map((men) => men._id);
+
       await Promise.all([
         new this.moduleModel({
           name: 'Administración de sistema - PRINCIPAL',
@@ -47,13 +54,9 @@ export class ModuleService implements OnApplicationBootstrap {
           creator: null,
         }).save(),
         new this.moduleModel({
-          name: 'Perfiles',
+          name: 'Administracion',
           status: true,
-          creator: null,
-        }).save(),
-        new this.moduleModel({
-          name: 'Tickets',
-          status: true,
+          menu: findMenusOthers,
           creator: null,
         }).save(),
       ]);
@@ -61,8 +64,7 @@ export class ModuleService implements OnApplicationBootstrap {
       //ADD ROL
       const getModules = await this.findbyNames([
         'Administración de sistema - PRINCIPAL',
-        'Perfiles',
-        'Tickets',
+        'Administracion',
       ]);
 
       await Promise.all([

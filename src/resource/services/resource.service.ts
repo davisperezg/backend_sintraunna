@@ -123,7 +123,7 @@ export class ResourceService implements OnModuleInit {
     }
 
     //Solo se permite letras
-    const patt = new RegExp(/^[A-Za-z]+$/g);
+    const patt = new RegExp(/^[A-Za-z_]+$/g);
     if (!patt.test(key)) {
       throw new HttpException(
         {

@@ -3,6 +3,8 @@ import { RolePermission } from '../enum/role.enum';
 import { UserPermission } from '../enum/user.enum';
 import { ResourcePermission } from '../enum/resource.enum';
 import { MenuPermission } from '../enum/menu.enum';
+import { EgresoPermission } from '../enum/egreso.enum';
+import { IngresoPermission } from '../enum/ingreso.enum';
 
 const Permission = {
   ...UserPermission,
@@ -10,6 +12,8 @@ const Permission = {
   ...ModulePermission,
   ...ResourcePermission,
   ...MenuPermission,
+  ...EgresoPermission,
+  ...IngresoPermission,
 };
 
 type Permission =
@@ -17,6 +21,8 @@ type Permission =
   | RolePermission
   | ModulePermission
   | ResourcePermission
-  | MenuPermission;
+  | MenuPermission
+  | EgresoPermission
+  | IngresoPermission;
 
 export default Permission;
