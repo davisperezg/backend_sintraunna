@@ -10,7 +10,7 @@ import { Controller } from '@nestjs/common';
 import { CtxUser } from 'src/lib/decorators/ctx-user.decorators';
 import PermissionGuard from 'src/lib/guards/resources.guard';
 import Permission from 'src/lib/type/permission.type';
-import { Ingreso } from '../schemas/Ingreso.schema';
+import { Ingreso } from '../schemas/ingreso.schema';
 import { IngresoService } from '../services/ingreso.service';
 
 @Controller('api/v1/ingresos')

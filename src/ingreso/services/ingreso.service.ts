@@ -2,7 +2,7 @@ import { HttpStatus } from '@nestjs/common';
 import { Injectable, HttpException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Ingreso, IngresoDocument } from '../schemas/Ingreso.schema';
+import { Ingreso, IngresoDocument } from '../schemas/ingreso.schema';
 
 @Injectable()
 export class IngresoService {
