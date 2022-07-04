@@ -9,13 +9,10 @@ export class Egreso {
   fecha: Date;
 
   @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  partido_vs: string;
+  nombre_destinatario: string;
 
   @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  local_visita: string;
-
-  @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  fase_copaPeru: string;
+  detalle_egreso: string;
 
   @Prop({ type: Boolean, requerid: true })
   status: boolean;
@@ -23,34 +20,16 @@ export class Egreso {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
   createBy: User;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  updateBy: User;
-
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  deleteBy: User;
-
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  restoreBy: User;
-
   @Prop({
     type: [
       {
         nro: { type: Number },
-        gasto: { type: String },
+        gasto: { type: String, uppercase: true, trim: true },
         monto: { type: Number },
       },
     ],
   })
   gastos: { nro: number; gasto: string; monto: number }[];
-
-  @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  motivo_editacion?: string;
-
-  @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  motivo_anulacion?: string;
-
-  @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  motivo_restauracion?: string;
 }
 
 export const EgresoSchema = SchemaFactory.createForClass(Egreso);

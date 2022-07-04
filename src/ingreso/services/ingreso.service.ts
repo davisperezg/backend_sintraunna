@@ -11,11 +11,22 @@ export class IngresoService {
   ) {}
 
   async findAll(): Promise<Ingreso[]> {
-    return await this.ingresoModel.find();
+    const ingresos = await this.ingresoModel.find().populate('afiliado');
+    const newFormated = ingresos.map((a: any, i: number) => {
+      return {
+        ...a._doc,
+        index: i + 1,
+        afiliado: a.afiliado.nombres + ' ' + a.afiliado.apellidos,
+      };
+    });
+    return newFormated;
   }
 
   async findOne(id: string): Promise<Ingreso> {
     const ingreso: any = await this.ingresoModel.findById(id).populate([
+      {
+        path: 'afiliado',
+      },
       {
         path: 'createBy',
       },
@@ -69,15 +80,6 @@ export class IngresoService {
 
   async delete(id: string, motivo: string, user: any): Promise<Ingreso> {
     const { findUser } = user;
-
-    if (
-      Object.keys(motivo)[0] === undefined ||
-      Object.keys(motivo)[0] === 'undefined' ||
-      Object.keys(motivo)[0] === null ||
-      Object.keys(motivo)[0] === 'null'
-    ) {
-      throw new HttpException('Ingrese el motivo', HttpStatus.BAD_REQUEST);
-    }
 
     if (
       Object.keys(motivo)[0] === undefined ||

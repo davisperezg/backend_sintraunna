@@ -12,7 +12,7 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Resource, ResourceDocument } from '../schemas/resource.schema';
 import { Model, Types } from 'mongoose';
-import { resourcesByDefault } from 'src/lib/const/consts';
+import { resourcesAdds, resourcesByDefault } from 'src/lib/const/consts';
 import { User, UserDocument } from 'src/user/schemas/user.schema';
 
 @Injectable()
@@ -32,7 +32,9 @@ export class ResourceService implements OnModuleInit {
     if (count > 0) return;
     try {
       //inserta los recursos para los roles
-      await this.resourceModel.insertMany(resourcesByDefault);
+      await this.resourceModel.insertMany(
+        resourcesByDefault.concat(resourcesAdds),
+      );
     } catch (e) {
       throw new Error(`Error en ResourceService.onModuleInit ${e}`);
     }

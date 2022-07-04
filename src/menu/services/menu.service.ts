@@ -40,15 +40,30 @@ export class MenuService implements OnModuleInit {
           status: true,
           link: 'permisos',
         }).save(),
-        new this.menuModel({
-          name: 'Ingresos',
-          status: true,
-          link: 'ingresos',
-        }).save(),
+        // new this.menuModel({
+        //   name: 'Ingresos',
+        //   status: true,
+        //   link: 'ingresos',
+        // }).save(),
         new this.menuModel({
           name: 'Egresos',
           status: true,
           link: 'egresos',
+        }).save(),
+        new this.menuModel({
+          name: 'Afiliados',
+          status: true,
+          link: 'afiliados',
+        }).save(),
+        new this.menuModel({
+          name: 'Grupos',
+          status: true,
+          link: 'grupos',
+        }).save(),
+        new this.menuModel({
+          name: 'Pagos',
+          status: true,
+          link: 'pagos',
         }).save(),
       ]);
     } catch (e) {

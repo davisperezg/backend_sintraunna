@@ -1,3 +1,4 @@
+import { Afiliado } from './../../afiliado/schemas/afiliado.schema';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { User } from 'src/user/schemas/user.schema';
@@ -5,41 +6,34 @@ export type IngresoDocument = Ingreso & mongoose.Document;
 
 @Schema({ timestamps: true, versionKey: false })
 export class Ingreso {
+  @Prop({ type: Boolean, requerid: true })
+  status: boolean;
+
   @Prop({ type: Date, requerid: true })
   fecha: Date;
 
   @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  partido_vs: string;
+  detalle_ingreso: string;
 
-  @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  local_visita: string;
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Afiliado' })
+  afiliado: Afiliado;
 
-  @Prop({ type: String, uppercase: true, trim: true, requerid: true })
-  fase_copaPeru: string;
-
-  @Prop({ type: String, trim: true, requerid: true })
-  realizo_actividad: string;
-
-  @Prop({ type: String, uppercase: true, trim: true })
-  nombre_actividad: string;
-
-  @Prop({ type: Number })
-  ingreso_total_actividad: number;
-
-  @Prop({ type: Number, requerid: true })
-  ingreso_apoyo_tribuna: number;
-
-  @Prop({ type: Number, requerid: true })
-  ingreso_cuota_dirigentes: number;
-
-  @Prop({ type: Number, requerid: true })
-  otros_ingresos: number;
-
-  @Prop({ type: Number, requerid: true })
-  ingreso_taquilla: number;
-
-  @Prop({ type: Boolean, requerid: true })
-  status: boolean;
+  @Prop({
+    type: [
+      {
+        nro: { type: Number },
+        proyecto: { type: String },
+        concepto: { type: String },
+        importe: { type: Number },
+      },
+    ],
+  })
+  ingresos_afiliado: {
+    nro: number;
+    proyecto: string;
+    concepto: string;
+    monto: number;
+  }[];
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
   createBy: User;

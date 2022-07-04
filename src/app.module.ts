@@ -14,6 +14,9 @@ import { ServicesUsersModule } from './services-users/services-users.module';
 import { EgresoModule } from './egreso/egreso.module';
 import { IngresoModule } from './ingreso/ingreso.module';
 import { ConfigModule } from '@nestjs/config';
+import { AfiliadoModule } from './afiliado/afiliado.module';
+import { PagoModule } from './pago/pago.module';
+import { GrupoModule } from './grupo/grupo.module';
 
 @Module({
   imports: [
@@ -37,6 +40,9 @@ import { ConfigModule } from '@nestjs/config';
     ServicesUsersModule,
     EgresoModule,
     IngresoModule,
+    AfiliadoModule,
+    PagoModule,
+    GrupoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

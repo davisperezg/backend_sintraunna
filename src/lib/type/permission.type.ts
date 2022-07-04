@@ -5,6 +5,9 @@ import { ResourcePermission } from '../enum/resource.enum';
 import { MenuPermission } from '../enum/menu.enum';
 import { EgresoPermission } from '../enum/egreso.enum';
 import { IngresoPermission } from '../enum/ingreso.enum';
+import { AfiliadoPermission } from '../enum/afiliado.enum';
+import { GrupoPermission } from '../enum/grupo.enum';
+import { PagoPermission } from '../enum/pago.enum';
 
 const Permission = {
   ...UserPermission,
@@ -14,6 +17,9 @@ const Permission = {
   ...MenuPermission,
   ...EgresoPermission,
   ...IngresoPermission,
+  ...AfiliadoPermission,
+  ...GrupoPermission,
+  ...PagoPermission,
 };
 
 type Permission =
@@ -23,6 +29,9 @@ type Permission =
   | ResourcePermission
   | MenuPermission
   | EgresoPermission
-  | IngresoPermission;
+  | IngresoPermission
+  | AfiliadoPermission
+  | GrupoPermission
+  | PagoPermission;
 
 export default Permission;

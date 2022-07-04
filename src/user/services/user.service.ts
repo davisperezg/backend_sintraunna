@@ -61,11 +61,11 @@ export class UserService implements OnApplicationBootstrap {
 
         await this.userModel.insertMany([
           {
-            name: 'El',
-            lastname: 'Duenio',
+            name: 'Olger',
+            lastname: 'Perez',
             tipDocument: 'DNI',
-            nroDocument: '99999999',
-            email: 'admin@admin.com',
+            nroDocument: '40704739',
+            email: 'olger70@gmail.com',
             password: passwordHashed,
             status: true,
             role: getRole._id,

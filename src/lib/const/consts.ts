@@ -251,3 +251,154 @@ export const resourcesByDefault = [
     status: true,
   },
 ];
+
+export const resourcesAdds = [
+  //GRUPO
+  {
+    name: 'Leer Grupos', //add
+    key: 'canRead_grupos',
+    description: 'Te permite listar todos los grupos.',
+    status: true,
+  },
+  {
+    name: 'Obtener la informacion X grupo', //add
+    key: 'canReadOne_grupos',
+    description: 'Te permite leer la informacion X cada grupo.',
+    status: true,
+  },
+  {
+    name: 'Crear Grupo', //add
+    key: 'canCreate_grupos',
+    description: 'Te permite crear un grupo.',
+    status: true,
+  },
+  {
+    name: 'Editar Grupo', //add
+    key: 'canEdit_grupos',
+    description: 'Te permite editar un grupo.',
+    status: true,
+  },
+  {
+    name: 'Eliminar Grupo', //add
+    key: 'canDelete_grupos',
+    description: 'Te permite eliminar un grupo.',
+    status: true,
+  },
+  {
+    name: 'Restaurar Grupo', //add
+    key: 'canRestore_grupos',
+    description: 'Te permite restaurar un grupo.',
+    status: true,
+  },
+  //PAGOS
+  {
+    name: 'Leer Pagos', //add
+    key: 'canRead_pagos',
+    description: 'Te permite listar todos los pagos.',
+    status: true,
+  },
+  {
+    name: 'Obtener la informacion X pago', //add
+    key: 'canReadOne_pagos',
+    description: 'Te permite leer la informacion X cada pago.',
+    status: true,
+  },
+  {
+    name: 'Crear Pago', //add
+    key: 'canCreate_pagos',
+    description: 'Te permite crear un pago.',
+    status: true,
+  },
+  {
+    name: 'Editar Pago', //add
+    key: 'canEdit_pagos',
+    description: 'Te permite editar un pago.',
+    status: true,
+  },
+  {
+    name: 'Eliminar Pago', //add
+    key: 'canDelete_pagos',
+    description: 'Te permite eliminar un pago.',
+    status: true,
+  },
+  {
+    name: 'Restaurar Pago', //add
+    key: 'canRestore_pagos',
+    description: 'Te permite restaurar un pago.',
+    status: true,
+  },
+  //Afiliado
+  {
+    name: 'Leer Afiliados', //add
+    key: 'canRead_afiliados',
+    description: 'Te permite listar todos los afiliados.',
+    status: true,
+  },
+  {
+    name: 'Obtener la informacion X afiliado', //add
+    key: 'canReadOne_afiliados',
+    description: 'Te permite leer la informacion X cada afiliado.',
+    status: true,
+  },
+  {
+    name: 'Crear Afiliado', //add
+    key: 'canCreate_afiliados',
+    description: 'Te permite crear un afiliado.',
+    status: true,
+  },
+  {
+    name: 'Editar Afiliado', //add
+    key: 'canEdit_afiliados',
+    description: 'Te permite editar un afiliado.',
+    status: true,
+  },
+  {
+    name: 'Eliminar Afiliado', //add
+    key: 'canDelete_afiliados',
+    description: 'Te permite eliminar un afiliado.',
+    status: true,
+  },
+  {
+    name: 'Restaurar Afiliado', //add
+    key: 'canRestore_afiliados',
+    description: 'Te permite restaurar un afiliado.',
+    status: true,
+  },
+  //EGREESO
+  {
+    name: 'Leer Egresos', //add
+    key: 'canRead_egresos',
+    description: 'Te permite listar todos los egresos.',
+    status: true,
+  },
+  {
+    name: 'Obtener la informacion X egresos', //add
+    key: 'canReadOne_egresos',
+    description: 'Te permite leer la informacion X cada egresos.',
+    status: true,
+  },
+  {
+    name: 'Crear Egresos', //add
+    key: 'canCreate_egresos',
+    description: 'Te permite crear un egresos.',
+    status: true,
+  },
+  {
+    name: 'Editar Egresos', //add
+    key: 'canEdit_egresos',
+    description: 'Te permite editar un egresos.',
+    status: true,
+  },
+  {
+    name: 'Eliminar Egresos', //add
+    key: 'canDelete_egresos',
+    description: 'Te permite eliminar un egresos.',
+    status: true,
+  },
+  {
+    name: 'Restaurar Egresos', //add
+    key: 'canRestore_egresos',
+    description: 'Te permite restaurar un egresos.',
+    status: true,
+  },
+];

@@ -40,8 +40,11 @@ export class ModuleService implements OnApplicationBootstrap {
       const findMenus = getMenus.map((men) => men._id);
 
       const getMenusOthers = await this.menuService.findbyName([
-        'Ingresos',
+        // 'Ingresos',
         'Egresos',
+        'Afiliados',
+        'Pagos',
+        'Grupos',
       ]);
 
       const findMenusOthers = getMenusOthers.map((men) => men._id);
