@@ -13,16 +13,16 @@ export class MenuService implements OnModuleInit {
   constructor(@InjectModel(Menu.name) private menuModel: Model<MenuDocument>) {}
 
   async onModuleInit() {
-     new this.menuModel({
-       name: 'Consulta por pagos',
-       status: true,
-       link: 'consulta-pagos',
-     }).save();
-     ``new this.menuModel({
-       name: 'Consulta general',
-       status: true,
-       link: 'consulta-general',
-     }).save();
+    new this.menuModel({
+      name: 'Consulta por pagos',
+      status: true,
+      link: 'consulta-pagos',
+    }).save();
+    new this.menuModel({
+      name: 'Consulta general',
+      status: true,
+      link: 'consulta-general',
+    }).save();
     const count = await this.menuModel.estimatedDocumentCount();
     if (count > 0) return;
 
