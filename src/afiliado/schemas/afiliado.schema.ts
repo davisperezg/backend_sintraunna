@@ -40,7 +40,10 @@ export class Afiliado {
       {
         nro: { type: Number },
         fecha: { type: Date },
-        pago: { type: mongoose.Schema.Types.ObjectId, ref: 'Pago' },
+        pago: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Pago',
+        },
         importe: { type: Number },
       },
     ],

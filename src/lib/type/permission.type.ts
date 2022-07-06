@@ -1,3 +1,4 @@
+import { ConsultaPermission } from './../enum/consulta.enum';
 import { ModulePermission } from '../enum/module.enum';
 import { RolePermission } from '../enum/role.enum';
 import { UserPermission } from '../enum/user.enum';
@@ -20,6 +21,7 @@ const Permission = {
   ...AfiliadoPermission,
   ...GrupoPermission,
   ...PagoPermission,
+  ...ConsultaPermission,
 };
 
 type Permission =
@@ -32,6 +34,7 @@ type Permission =
   | IngresoPermission
   | AfiliadoPermission
   | GrupoPermission
-  | PagoPermission;
+  | PagoPermission
+  | ConsultaPermission;
 
 export default Permission;

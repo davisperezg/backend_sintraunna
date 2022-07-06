@@ -17,6 +17,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AfiliadoModule } from './afiliado/afiliado.module';
 import { PagoModule } from './pago/pago.module';
 import { GrupoModule } from './grupo/grupo.module';
+import { ConsultaModule } from './consulta/consulta.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { GrupoModule } from './grupo/grupo.module';
     AfiliadoModule,
     PagoModule,
     GrupoModule,
+    ConsultaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
