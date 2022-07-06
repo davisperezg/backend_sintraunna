@@ -17,7 +17,7 @@ export class ConsultaService {
   ) {}
 
   async findXPago(id: string): Promise<any[]> {
-    const afiliados = await this.afiliadoModel.find();
+    const afiliados = await this.afiliadoModel.find({ status: true });
     const listPagos_afiliados = afiliados.map((a: any, i: number) => {
       return {
         index: i + 1,
@@ -36,7 +36,7 @@ export class ConsultaService {
 
   async findAll(): Promise<any[]> {
     const afiliados = await this.afiliadoModel
-      .find()
+      .find({ status: true })
       .populate({ path: 'pagos', populate: { path: 'pago' } });
     const listPagos_afiliados = afiliados.map((a: any, i: number) => {
       return {
