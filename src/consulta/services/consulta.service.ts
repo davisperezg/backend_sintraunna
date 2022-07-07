@@ -47,6 +47,7 @@ export class ConsultaService {
             importe: x.importe,
             concepto: x.pago.concepto,
             fecha: x.fecha,
+            destino_dinero: x.destino_dinero,
           };
         }),
       };
