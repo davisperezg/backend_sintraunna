@@ -164,13 +164,17 @@ export class AfiliadoService {
             }
           });
         });
-        console.log(items);
+
         const formated = items.map((a) => {
           return {
             nro: a.nro,
             fecha: {
               valorActual: new Date('1900-01-01T00:00:00.812+00:00'),
               valorModificadoA: a.fecha,
+            },
+            destino_dinero: {
+              valorActual: 'NO EXISTIA',
+              valorModificadoA: a.destino_dinero,
             },
             pago: {
               valorActual: new Types.ObjectId('000000000000000000000000'),
@@ -202,6 +206,10 @@ export class AfiliadoService {
               valorActual: a.fecha,
               valorModificadoA: new Date('1900-01-01T00:00:00.812+00:00'),
             },
+            destino_dinero: {
+              valorActual: a.destino_dinero,
+              valorModificadoA: 'EL ITEM HA SIDO ELIMINADO',
+            },
             pago: {
               valorActual: a.pago,
               valorModificadoA: new Types.ObjectId('000000000000000000000000'),
@@ -225,6 +233,7 @@ export class AfiliadoService {
           [curr.nro]: {
             nro: curr.nro,
             fecha: String(curr.fecha),
+            destino_dinero: curr.destino_dinero,
             pago: curr.pago,
             importe: curr.importe,
           },
@@ -244,7 +253,8 @@ export class AfiliadoService {
             new Date(index[curr.nro].fecha).toString() !==
               new Date(String(curr.fecha)).toString() ||
             index[curr.nro].importe !== curr.importe ||
-            String(curr.pago) !== String(index[curr.nro].pago)
+            String(curr.pago) !== String(index[curr.nro].pago) ||
+            index[curr.destino_dinero] !== curr.destino_dinero
           ) {
             return {
               valorActual_MANIN: [
@@ -255,6 +265,11 @@ export class AfiliadoService {
                     new Date(String(curr.fecha)).toString() && {
                     valorActual: curr.fecha,
                     valorModificadoA: new Date(index[curr.nro].fecha),
+                  },
+                  destino_dinero: curr.destino_dinero !==
+                    index[curr.destino_dinero] && {
+                    valorActual: curr.destino_dinero,
+                    valorModificadoA: index[curr.nro].destino_dinero,
                   },
                   pago: String(curr.pago) !== String(index[curr.nro].pago) && {
                     valorActual: curr.pago,
@@ -283,7 +298,7 @@ export class AfiliadoService {
 
       return res;
     };
-    console.log(ValGrupoModified && typeof ValGrupoModified === 'string');
+
     const objectModifieds = {
       grupo: (ValGrupoModified || typeof ValGrupoModified === 'string') && {
         valorActual: grupo,

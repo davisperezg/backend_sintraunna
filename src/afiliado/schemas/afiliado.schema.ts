@@ -40,6 +40,7 @@ export class Afiliado {
       {
         nro: { type: Number },
         fecha: { type: Date },
+        destino_dinero: { type: String },
         pago: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Pago',
@@ -51,6 +52,7 @@ export class Afiliado {
   pagos: {
     nro: number;
     fecha: Date;
+    destino_dinero: string;
     pago: Pago;
     importe: number;
   }[];

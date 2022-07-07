@@ -59,6 +59,10 @@ export class BkUpdatedAt {
             valorActual: { type: Date || String },
             valorModificadoA: { type: Date || String },
           },
+          destino_dinero: {
+            valorActual: { type: String },
+            valorModificadoA: { type: String },
+          },
           pago: {
             valorActual: { type: mongoose.Schema.Types.ObjectId, ref: 'Pago' },
             valorModificadoA: {
