@@ -24,12 +24,18 @@ export class Egreso {
     type: [
       {
         nro: { type: Number },
+        proviene_dinero: { type: String, uppercase: true, trim: true },
         gasto: { type: String, uppercase: true, trim: true },
         monto: { type: Number },
       },
     ],
   })
-  gastos: { nro: number; gasto: string; monto: number }[];
+  gastos: {
+    nro: number;
+    proviene_dinero: string;
+    gasto: string;
+    monto: number;
+  }[];
 }
 
 export const EgresoSchema = SchemaFactory.createForClass(Egreso);

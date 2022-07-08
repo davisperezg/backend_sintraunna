@@ -155,9 +155,14 @@ export class EgresoService {
             }
           });
         });
+
         const formated = items.map((a) => {
           return {
             nro: a.nro,
+            proviene_dinero: {
+              valorActual: 'ITEM NO EXISTIA',
+              valorModificadoA: a.proviene_dinero,
+            },
             gasto: {
               valorActual: 'ITEM NO EXISTIA',
               valorModificadoA: a.gasto,
@@ -184,6 +189,10 @@ export class EgresoService {
         const formated = items.map((a) => {
           return {
             nro: a.nro,
+            proviene_dinero: {
+              valorActual: a.proviene_dinero,
+              valorModificadoA: 'EL ITEM HA SIDO ELIMINADO',
+            },
             gasto: {
               valorActual: a.gasto,
               valorModificadoA: 'EL ITEM HA SIDO ELIMINADO',
@@ -206,6 +215,7 @@ export class EgresoService {
           ...prev,
           [curr.nro]: {
             nro: curr.nro,
+            proviene_dinero: curr.proviene_dinero,
             gasto: curr.gasto,
             monto: curr.monto,
           },
@@ -223,13 +233,19 @@ export class EgresoService {
 
           if (
             index[curr.nro].gasto !== curr.gasto ||
-            index[curr.nro].monto !== curr.monto
+            index[curr.nro].monto !== curr.monto ||
+            index[curr.nro].proviene_dinero !== curr.proviene_dinero
           ) {
             return {
               valorActual_MANIN: [
                 ...prev.valorActual_MANIN,
                 {
                   nro: curr.nro,
+                  proviene_dinero: curr.proviene_dinero !==
+                    index[curr.proviene_dinero] && {
+                    valorActual: curr.proviene_dinero,
+                    valorModificadoA: index[curr.nro].proviene_dinero,
+                  },
                   gasto: curr.gasto !== index[curr.nro].gasto && {
                     valorActual: curr.gasto,
                     valorModificadoA: index[curr.nro].gasto,

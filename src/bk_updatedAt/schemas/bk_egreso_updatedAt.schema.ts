@@ -32,6 +32,10 @@ export class BkEgresoUpdatedAt {
       gastos: [
         {
           nro: { type: Number },
+          proviene_dinero: {
+            valorActual: { type: String, uppercase: true, trim: true },
+            valorModificadoA: { type: String, uppercase: true, trim: true },
+          },
           gasto: {
             valorActual: { type: String, uppercase: true, trim: true },
             valorModificadoA: { type: String, uppercase: true, trim: true },
